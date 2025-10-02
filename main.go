@@ -2,6 +2,8 @@ package main
 
 import (
 	"errors"
+	"fmt"
+	"hill-cypher/cipher"
 	"os"
 	"strings"
 )
@@ -48,6 +50,7 @@ func parseKey(key *string) ([][]int, error) {
 }
 
 func main() {
+	fmt.Println(string(rune(115)))
 	keyStr, keyStrErr := getKey()
 	if keyStrErr != nil {
 		panic(keyStrErr)
@@ -67,4 +70,9 @@ func main() {
 		panic("WTF NO DATA!!!")
 	}
 
+	fmt.Println("Input: " + *data)
+	encrypted := cipher.Encrypt(key, *data)
+	fmt.Println("Encrypted: " + encrypted)
+	decrypted := cipher.Decrypt(key, encrypted)
+	fmt.Println("Decrypted: " + decrypted)
 }

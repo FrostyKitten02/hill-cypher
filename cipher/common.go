@@ -5,7 +5,8 @@ import (
 	"strings"
 )
 
-const CHARSET = 257                         //number of all characters
+// 257 for ASCII support, 1 more to get prime number of possible chars and this allows us to use a filler char
+const CHARSET = 389                         //number of all characters
 const MAX_CHAR_VAL = CHARSET - 1            //last valid char value, also used for filler char
 const MAX_VALID_CHAR_VAL = MAX_CHAR_VAL - 1 //last valid char we can use from input string, ASCII
 
